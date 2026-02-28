@@ -78,7 +78,7 @@ export const Skills = () => {
                 {/* Glow Effect based on level */}
                 <div 
                   className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
-                  style={{ opacity: skill.level / 100 * 0.2 }}
+                  style={{ opacity: (skill.level || 0) / 100 * 0.2 }}
                 />
 
                 <div className="relative z-10">

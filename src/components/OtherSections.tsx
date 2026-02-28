@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, useSpring, useTransform, animate, useInView } from 'framer-motion';
+import { motion, animate, useInView } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
 import { Section } from './Section';
-import { Mail, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Send, Github, Linkedin } from 'lucide-react';
 
 const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) => {
   const [displayValue, setDisplayValue] = useState(0);

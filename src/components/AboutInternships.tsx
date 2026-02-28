@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
 import { Section } from './Section';
-import { GraduationCap, Briefcase } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
 export const About = () => {
   return (
