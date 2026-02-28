@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00e5ff;
+  --secondary: #7000ff;
+  --accent: #00ffa3;
+  --background: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white selection:bg-primary/30;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl transition-all duration-300 relative overflow-hidden;
+  }
+
+  .glass-card:before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+  }
+
+  .glass-card:hover {
+    @apply border-white/20 shadow-lg shadow-primary/10;
+  }
+
+  .neon-text-primary {
+    @apply text-primary drop-shadow-[0_0_10px_rgba(0,229,255,0.6)];
+  }
+
+  .neon-text-secondary {
+    @apply text-secondary drop-shadow-[0_0_10px_rgba(112,0,255,0.6)];
+  }
+
+  .neon-text-accent {
+    @apply text-accent drop-shadow-[0_0_10px_rgba(0,255,163,0.6)];
+  }
+
+  .neon-border-primary {
+    @apply border-primary/50 shadow-[0_0_20px_rgba(0,229,255,0.4)];
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-3 rounded-full bg-primary text-background font-bold 
+    hover:scale-105 transition-transform duration-300;
+  }
+
+  .btn-secondary {
+    @apply relative overflow-hidden px-8 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm
+    hover:bg-white/10 hover:border-white/40 transition-all duration-300;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-primary/50 transition-colors;
+}
+
+/* Background grid */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, rgba(112, 0, 255, 0.15) 0%, transparent 70%);
+}
