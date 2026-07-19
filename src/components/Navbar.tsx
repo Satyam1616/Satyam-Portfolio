@@ -1,94 +1,81 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import SoundToggle from './SoundToggle';
 
-export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Internships', href: '#internships' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ];
+export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-            <Terminal className="w-6 h-6 text-primary" />
-          </div>
-          <span className="text-xl font-black tracking-tighter">PORTFOLIO<span className="text-primary">.</span></span>
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-spider-dark/90 dark:bg-spider-dark/90 backdrop-blur-md border-b-2 border-spider-red/20">
+      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#" className="font-bangers text-2xl text-white tracking-wider">
+          SAT<span className="text-spider-red">YAM</span>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-12">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.href}
               href={link.href}
-              className="text-sm font-bold uppercase tracking-widest text-white/60 hover:text-primary transition-colors"
+              className="font-bebas text-lg tracking-wide text-white/70 hover:text-spider-red transition-colors relative group"
             >
-              {link.name}
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-spider-red group-hover:w-full transition-all duration-300" />
             </a>
           ))}
-          <a href="#contact" className="btn-primary text-xs py-2 px-6">
-            Let's Talk
-          </a>
+          <div className="flex items-center gap-2 ml-4">
+            <SoundToggle />
+          </div>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden p-2 text-white/60 hover:text-primary transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-        </button>
+        {/* Mobile toggle */}
+        <div className="flex md:hidden items-center gap-2">
+          <SoundToggle />
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-white p-1"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-white/5 overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden overflow-hidden bg-spider-dark/95 border-b-2 border-spider-red/20"
           >
-            <div className="px-6 py-10 flex flex-col gap-6">
+            <div className="px-6 py-4 flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
-                  className="text-2xl font-bold hover:text-primary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => setMobileOpen(false)}
+                  className="font-bebas text-xl tracking-wide text-white/70 hover:text-spider-red transition-colors"
                 >
-                  {link.name}
+                  {link.label}
                 </a>
               ))}
-              <a 
-                href="#contact" 
-                className="btn-primary text-center mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Let's Talk
-              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
   );
-};
+}

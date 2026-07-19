@@ -1,74 +1,132 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
-import { Section } from './Section';
-import { Github, ExternalLink, Code } from 'lucide-react';
 
-export const Projects = () => {
+function FlipCard({ project, index }: { project: typeof portfolioData.projects[0]; index: number }) {
+  const [flipped, setFlipped] = useState(false);
+  const hasDistinctLive = project.live !== project.github;
+
   return (
-    <Section id="projects" className="bg-white/[0.01]">
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center uppercase tracking-tighter">
-        Projects & <span className="neon-text-primary">Proof of Work</span>
-      </h2>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="relative h-72 perspective-1000 cursor-pointer"
+      onClick={() => setFlipped(!flipped)}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+        }}
+      >
+        {/* Front */}
+        <div
+          className="absolute inset-0 bg-spider-dark border-[3px] border-ink-black p-6 flex flex-col"
+          style={{ backfaceVisibility: 'hidden', boxShadow: '6px 6px 0px 0px #000000' }}
+        >
+          <h3 className="font-bangers text-2xl text-white mb-2">{project.title}</h3>
+          <p className="text-white/60 text-sm mb-4 flex-1 line-clamp-3">{project.description}</p>
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.slice(0, 4).map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-0.5 text-xs font-bold bg-spider-red/15 text-spider-red border border-spider-red/30 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.techStack.length > 4 && (
+              <span className="px-2 py-0.5 text-xs font-bold text-white/40">
+                +{project.techStack.length - 4}
+              </span>
+            )}
+          </div>
+          <p className="text-white/30 text-xs mt-4 font-bebas tracking-wider">HOVER TO FLIP</p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {portfolioData.projects.map((project, index) => (
-          <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ y: -10, boxShadow: "0 0 40px rgba(0, 229, 255, 0.4)" }}
-              className="glass-card group flex flex-col h-full overflow-hidden"
-            >
-              <div className="relative aspect-video bg-white/5 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:scale-110 transition-transform duration-700">
-                  <Code className="w-16 h-16 text-primary drop-shadow-[0_0_15px_rgba(0,229,255,0.8)]" />
-                </div>
-                <div className="absolute top-4 left-4 p-2 bg-background/80 backdrop-blur-md rounded-lg border border-white/10 group-hover:border-primary/50 transition-colors">
-                  <span className="text-[10px] uppercase tracking-widest text-primary font-bold">Featured Project</span>
-                </div>
-              </div>
+        {/* Back */}
+        <div
+          className="absolute inset-0 bg-spider-dark border-[3px] border-spider-red p-6 flex flex-col justify-between"
+          style={{
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+            boxShadow: '6px 6px 0px 0px #ff003c',
+          }}
+        >
+          <div>
+            <h3 className="font-bangers text-2xl text-spider-red mb-3">{project.title}</h3>
+            <p className="text-white/70 text-sm leading-relaxed">{project.description}</p>
+          </div>
 
-              <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-white/40 mb-8 flex-grow leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.techStack.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-white/5 rounded-full text-[10px] text-white/40 border border-white/10 uppercase tracking-wider group-hover:border-primary/30 transition-colors">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-6 mt-auto">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-white/40 hover:text-primary transition-colors"
-                  >
-                    <Github className="w-5 h-5" />
-                    Code
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-white/40 hover:text-primary transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-        ))}
-      </div>
-    </Section>
+          <div>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2 py-0.5 text-xs font-bold bg-spider-blue/15 text-spider-blue border border-spider-blue/30 rounded"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Github size={16} />
+                Code
+              </a>
+              {hasDistinctLive && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm text-spider-blue hover:text-white transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <ExternalLink size={16} />
+                  Live
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
-};
+}
+
+export default function Projects() {
+  const { projects } = portfolioData;
+
+  return (
+    <section id="projects" className="relative py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-bangers text-5xl sm:text-6xl text-center text-white mb-12"
+        >
+          PRO<span className="text-spider-blue">JECTS</span>
+        </motion.h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, i) => (
+            <FlipCard key={i} project={project} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,6 +1,6 @@
 export const portfolioData = {
   name: "Satyam Jha",
-  role: "B.Tech 3rd Year | Full Stack Developer | Web3 Enthusiast | Problem Solver",
+  role: "B.Tech 4th Year | Full Stack Developer | Web3 Enthusiast",
   about: "Currently pursuing B.Tech in Computer Science, I am a passionate developer with a strong foundation in DSA and System Design. I specialize in building scalable, decentralized systems and have a keen interest in modern web technologies and Web3.",
   intro: "Building the future of the web with code and creativity. Specialized in high-performance applications and decentralized solutions.",
   email: "satyamjha1616@gmail.com",
@@ -16,6 +16,18 @@ export const portfolioData = {
     }
   ],
   internships: [
+    {
+      role: "SDE",
+      company: "AMK Global Group",
+      duration: "Mar 2026 – May 2026 · Remote",
+      contributions: [
+        "Built and maintained scalable, responsive web applications using modern frontend and backend technologies, improving Core Web Vitals scores and significantly boosting page speed across all platforms.",
+        "Implemented technical SEO improvements — structured data, sitemap optimisation, metadata management, and URL architecture — alongside third-party API, CRM, and automation workflow integrations.",
+        "Led performance optimisation initiatives (code refactoring, asset compression, lazy loading, caching) and resolved complex frontend/backend production issues, reducing platform downtime noticeably."
+      ],
+      techStack: ["React", "Node.js", "SEO", "Performance Optimization", "API Integration"],
+      impact: "Improved Core Web Vitals and page speed across all platforms while reducing downtime."
+    },
     {
       role: "Full Stack Developer - Intern",
       company: "The Glen",
@@ -164,5 +176,25 @@ export const portfolioData = {
   ],
   techStackLogos: [
     "React", "Node.js", "Solidity", "AWS", "MongoDB", "Git", "Docker", "TypeScript", "Tailwind", "Ethereum"
+  ],
+  testimonials: [
+    {
+      name: "Rahul Sharma",
+      role: "CTO, The Glen",
+      quote: "Satyam delivered exceptional work on our StayFindz platform. His full-stack skills and initiative are remarkable for someone at his stage.",
+      avatar: ""
+    },
+    {
+      name: "Priya Mehta",
+      role: "Co-Founder, Brainitix",
+      quote: "One of the most dedicated developers we've worked with. Satyam's ability to handle multiple product UIs simultaneously was impressive.",
+      avatar: ""
+    },
+    {
+      name: "Aditya Verma",
+      role: "Fellow Developer, DevSummit",
+      quote: "Satyam's leadership during DevSummit was outstanding. He organized everything from scratch and brought together an incredible community.",
+      avatar: ""
+    }
   ]
 };

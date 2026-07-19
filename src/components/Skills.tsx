@@ -1,154 +1,85 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
-import { Section } from './Section';
-import { cn } from '../utils/cn';
-import { Cpu, Lightbulb, Users, MessageSquare, Zap, Target, RefreshCw, Code2, Database, Globe, ShieldCheck, Cloud, GitBranch, Layers, Terminal } from 'lucide-react';
+import ComicPanel from './ui/ComicPanel';
 
-const SkillIcon = ({ name }: { name: string }) => {
-  const icons: Record<string, any> = {
-    'Data Structures & Algorithms': Cpu,
-    'Full Stack Development (React, Node.js)': Globe,
-    'Blockchain & Web3': ShieldCheck,
-    'Solidity & Smart Contracts': Code2,
-    'AWS & Cloud Deployment': Cloud,
-    'Database Systems (MongoDB, MySQL)': Database,
-    'Git & CI/CD': GitBranch,
-    'REST APIs': Terminal,
-    'System Design Basics': Layers,
-    'Leadership': Users,
-    'Communication': MessageSquare,
-    'Problem Solving': Zap,
-    'Team Collaboration': Users,
-    'Adaptability': RefreshCw,
-    'Critical Thinking': Target,
-  };
-  const Icon = icons[name] || Lightbulb;
-  return <Icon className="w-6 h-6" />;
-};
+const stickerColors = [
+  { bg: 'bg-spider-red', text: 'text-white' },
+  { bg: 'bg-spider-blue', text: 'text-white' },
+  { bg: 'bg-comic-yellow', text: 'text-spider-dark' },
+];
 
-export const Skills = () => {
+function stickerRotation(index: number): number {
+  const angles = [-3, 2, -1.5, 3, -2, 1.5, -2.5, 2.5, -1];
+  return angles[index % angles.length];
+}
+
+export default function Skills() {
+  const { skills } = portfolioData;
+
   return (
-    <Section id="skills" className="relative overflow-hidden">
-      {/* Decorative background element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="skills" className="relative py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-bangers text-5xl sm:text-6xl text-center text-white mb-12"
+        >
+          SKI<span className="text-comic-yellow">LLS</span>
+        </motion.h2>
 
-      <div className="relative z-10">
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-7xl font-black mb-6 tracking-tighter uppercase">
-              Technical <span className="neon-text-accent">Expertise</span>
-            </h2>
-            <p className="text-white/40 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
-              Forging robust digital solutions through a specialized stack of modern technologies and architectural patterns.
-            </p>
-          </motion.div>
-        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          <ComicPanel delay={0.1}>
+            <h3 className="font-bebas text-2xl text-spider-red mb-6 tracking-wide">TECHNICAL</h3>
+            <div className="flex flex-wrap gap-3">
+              {skills.technical.map((skill, i) => {
+                const color = stickerColors[i % stickerColors.length];
+                const rotate = stickerRotation(i);
 
-        {/* Bento-style Grid for Skills */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
-          {portfolioData.skills.technical.map((skill, index) => {
-            // Determine card size for bento effect
-            const isLarge = index === 0 || index === 4 || index === 7;
-            const isWide = index === 1 || index === 6;
-
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className={cn(
-                  "glass-card p-8 group relative flex flex-col justify-between transition-all duration-500",
-                  isLarge && "md:row-span-2",
-                  isWide && "md:col-span-2"
-                )}
-              >
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity duration-700 pointer-events-none">
-                  <div className="absolute inset-0 bg-grid scale-150" />
-                </div>
-
-                {/* Glow Effect based on level */}
-                <div 
-                  className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
-                  style={{ opacity: (skill.level || 0) / 100 * 0.2 }}
-                />
-
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-8">
-                    <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-all duration-500 shadow-[0_0_20px_rgba(0,255,163,0.1)] group-hover:shadow-[0_0_30px_rgba(0,255,163,0.3)]">
-                      <div className="text-accent group-hover:scale-110 transition-transform duration-500">
-                        <SkillIcon name={skill.name} />
-                      </div>
-                    </div>
-                    
-                  </div>
-
-                  <h3 className="text-2xl font-black mb-3 group-hover:text-accent transition-colors tracking-tight">
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.7, rotate: rotate - 5 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06, type: 'spring', stiffness: 200 }}
+                    whileHover={{ rotate: 0, y: -4, scale: 1.08 }}
+                    className={`${color.bg} ${color.text} px-4 py-2 border-2 border-ink-black font-bold text-sm uppercase tracking-wide shadow-comic cursor-default`}
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
                     {skill.name}
-                  </h3>
-                  
-                  <p className="text-sm text-white/40 group-hover:text-white/60 transition-colors leading-relaxed line-clamp-3">
-                    Advanced proficiency in {skill.name.toLowerCase()} ensuring high-performance and scalable application development.
-                  </p>
-                </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </ComicPanel>
 
-                <div className="relative z-10 mt-auto pt-6">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(0,255,163,0.8)]" />
-                    <span className="text-[10px] uppercase tracking-[0.2em] font-black text-accent/60">Ready for Deployment</span>
-                  </div>
-                </div>
-
-                {/* Animated Border on hover */}
-                <div className="absolute inset-0 border-2 border-accent/0 group-hover:border-accent/20 rounded-2xl transition-all duration-500 pointer-events-none" />
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <div className="mt-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tight">
-              Professional <span className="text-accent/60">&</span> Soft Skills
-            </h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              {portfolioData.skills.soft.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
+          <ComicPanel delay={0.2} rotation={-1}>
+            <h3 className="font-bebas text-2xl text-spider-blue mb-6 tracking-wide">SOFT SKILLS</h3>
+            <div className="flex flex-wrap gap-3">
+              {skills.soft.map((skill, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="px-8 py-5 glass-card border-accent/10 hover:border-accent/40 flex items-center gap-4 group cursor-default shadow-xl"
+                  transition={{ delay: i * 0.08 }}
+                  className="px-4 py-2 font-bold text-sm bg-comic-yellow/10 text-comic-yellow border-2 border-comic-yellow/40 rounded-lg hover:bg-comic-yellow/20 hover:scale-105 transition-all cursor-default"
                 >
-                  <div className="text-accent/40 group-hover:text-accent group-hover:rotate-12 transition-all duration-500">
-                    <SkillIcon name={skill} />
-                  </div>
-                  <span className="font-black text-white/60 group-hover:text-white transition-colors uppercase tracking-[0.2em] text-xs">
-                    {skill}
-                  </span>
-                </motion.div>
+                  {skill}
+                </motion.span>
               ))}
             </div>
-          </motion.div>
+
+            <div className="mt-8 p-4 bg-spider-red/10 border border-spider-red/30 rounded-lg">
+              <p className="font-bebas text-lg text-spider-red tracking-wide mb-1">COMIC HERO STATS</p>
+              <p className="text-white/60 text-sm">
+                Full-stack web development, blockchain, and cloud — with a problem-solving mindset that won't quit.
+              </p>
+            </div>
+          </ComicPanel>
         </div>
       </div>
-    </Section>
+    </section>
   );
-};
-
-
+}
