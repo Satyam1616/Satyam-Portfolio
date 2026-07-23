@@ -126,8 +126,29 @@ export const portfolioData = {
   },
   projects: [
     {
+      title: "GeoTrack",
+      description: "Full-stack vehicle-tracking platform with real-time entry/exit detection using Ray Casting point-in-polygon algorithm and live WebSocket alerts.",
+      techStack: ["Go", "React", "TypeScript", "PostgreSQL", "Docker", "Leaflet"],
+      github: "https://github.com/Satyam1616/geofencing-alert-system",
+      live: "https://frontend-gamma-two-13.vercel.app"
+    },
+    {
+      title: "Trine",
+      description: "Cross-platform wellness companion (PWA + React Native) spanning skincare routines, workout plans, and learning tracks with streaks, progress rings, and Health Connect/HealthKit integration.",
+      techStack: ["React Native", "Expo", "TypeScript", "Health Connect"],
+      github: "https://github.com/Satyam1616/Trine",
+      live: "https://drive.google.com/file/d/1I_zNJtq6kDv0I1KLKGVG2VWNVnE1iJA3/view?usp=drive_link"
+    },
+    {
+      title: "DevMatch",
+      description: "Freelance marketplace with real-time developer availability, WebRTC video meetings, WebSocket live chat, and blockchain-powered escrow payments using Ethereum smart contracts.",
+      techStack: ["Django", "React", "WebRTC", "Solidity", "Ethereum"],
+      github: "https://github.com/Satyam1616/DevHire",
+      live: "https://drive.google.com/drive/folders/1nzC9N4JjX7SUsqvnZquYCEvhiNgm7zx1?usp=sharing"
+    },
+    {
       title: "DevSummit",
-      description: "Premier student-led hackathon platform fostering innovation and collaboration.",
+      description: "Premier student-led hackathon platform fostering innovation and collaboration across AI/ML, Web3, and FinTech.",
       techStack: ["React", "Tailwind", "Node.js"],
       github: "https://github.com/Satyam1616",
       live: "https://devsummit.jagannathuniversity.org/"
