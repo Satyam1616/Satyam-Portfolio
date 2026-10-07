@@ -1,71 +1,70 @@
 export const portfolioData = {
   name: "Satyam Jha",
-  role: "B.Tech 4th Year | Full Stack Developer | Web3 Enthusiast",
-  about: "Currently pursuing B.Tech in Computer Science, I am a passionate developer with a strong foundation in DSA and System Design. I specialize in building scalable, decentralized systems and have a keen interest in modern web technologies and Web3.",
-  intro: "Building the future of the web with code and creativity. Specialized in high-performance applications and decentralized solutions.",
+  role: "Final-Year B.Tech CSE (AI-ML) | Full-Stack Software Engineer",
+  about: "I'm a final-year B.Tech Computer Science and Engineering (AI-ML) student at Jagannath University, Jaipur, graduating in 2027. I build full-stack web, mobile, and real-time applications with React, TypeScript, Node.js, PostgreSQL, and Prisma. My experience covers REST APIs, authentication, production debugging, and performance optimization. I've worked on Snoozeit, which reached approximately 10K users, and built Anyme for Android and iOS with 1K+ Android downloads. Based in Jaipur, I'm open to entry-level software engineering roles, remote opportunities, and relocation.",
+  intro: "Building web, mobile, and AI-enabled products with React, TypeScript, Node.js, and SQL. Focused on APIs, real-time features, and production performance.",
   email: "satyamjha1616@gmail.com",
   github: "Satyam1616",
   linkedin: "https://www.linkedin.com/in/satyam-jha2004/",
-  resume: "https://docs.google.com/document/d/1j9erTUBwzhIraNKf05d9W4-bXOqtzHWK1sq7HHsJ5II/edit?usp=sharing",
+  resume: "/Satyam_Jha_Resume_Full_Stack_SDE.pdf",
   education: [
     {
-      degree: "B.Tech in Computer Science",
-      institution: "Jagannath University",
+      degree: "B.Tech in Computer Science and Engineering (AI-ML)",
+      institution: "Jagannath University, Jaipur",
       duration: "2023 - 2027",
-      details: "Focused on DSA, Design, Developemnt and Blockchain."
+      details: "Final-year student · CGPA: 8.4/10. Coursework: Data Structures and Algorithms, OOP, DBMS, Operating Systems, and Computer Networks."
     }
   ],
   internships: [
     {
-      role: "SDE",
+      role: "Software Development Engineer",
       company: "AMK Global Group",
       duration: "Mar 2026 – May 2026 · Remote",
       contributions: [
-        "Built and maintained scalable, responsive web applications using modern frontend and backend technologies, improving Core Web Vitals scores and significantly boosting page speed across all platforms.",
+        "Improved production web performance through refactoring, asset compression, lazy loading, and caching; reduced page-load time by approximately 30% and raised Lighthouse scores from approximately 65 to 90+.",
         "Implemented technical SEO improvements — structured data, sitemap optimisation, metadata management, and URL architecture — alongside third-party API, CRM, and automation workflow integrations.",
-        "Led performance optimisation initiatives (code refactoring, asset compression, lazy loading, caching) and resolved complex frontend/backend production issues, reducing platform downtime noticeably."
+        "Resolved 15+ production issues across web applications."
       ],
       techStack: ["React", "Node.js", "SEO", "Performance Optimization", "API Integration"],
-      impact: "Improved Core Web Vitals and page speed across all platforms while reducing downtime."
+      impact: "Approximately 30% faster page loads and Lighthouse scores improved from approximately 65 to 90+."
     },
     {
-      role: "Full Stack Developer - Intern",
-      company: "The Glen",
+      role: "Full-Stack Developer Intern",
+      company: "Horizon Beam / A Ryvent Info Tech Initiative",
       duration: "June 2025 - August 2025",
       contributions: [
-        "Built responsive UIs using React and Vue.js (stayfindz.com).",
-        "Developed mobile application for StayFindz.",
-        "Managed Backend and Database of their applications.",
+        "Built responsive React interfaces for StayFindz and contributed to a 40+ screen mobile application.",
+        "Contributed to Node.js/Express APIs and Prisma/SQLite database features for authentication, CRUD workflows, bookings, reviews, admin routes, and soft deletion.",
+        "Improved mobile-first UX through performance tuning and responsive design.",
         "Deployed applications via Render and linked custom domains with GoDaddy."
       ],
-      techStack: ["React", "Vue.js", "Node.js", "Database Management", "Render"],
+      techStack: ["React", "React Native", "Node.js", "Express.js", "Prisma", "SQLite", "Render"],
       impact: "Improved UX through mobile-first design, debugging, and performance tuning."
     },
     {
-      role: "Technical Member",
+      role: "Member of Technical Staff",
       company: "Snoozeit Media Pvt. Ltd.",
       duration: "January 2025 - June 2025",
       contributions: [
-        "Product in Testing Phase | Launching Soon.",
-        "Snooze delivers episodic series in short-form content for mobile audiences.",
-        "Tailored for mobile consumption and low attention spans.",
-        "Currently in pre-launch with content partnerships and platform features."
+        "Contributed to Snoozeit, a short-form episodic streaming product that reached approximately 10K users, developing product features and mobile interfaces.",
+        "Built Anyme, an anime microdrama application for Android and iOS that reached 1K+ Android downloads.",
+        "Developed mobile viewing experiences and collaborated on content-partnership integrations."
       ],
-      techStack: ["Mobile Development", "Content Delivery", "UI/UX"],
-      impact: "Building a seamless viewing experience for quick storytelling."
+      techStack: ["React Native", "JavaScript", "Android", "iOS", "API Integration"],
+      impact: "Snoozeit: approximately 10K users. Anyme: 1K+ Android downloads."
     },
     {
       role: "Lead Organiser",
       company: "DevSummit",
-      duration: "29-30 March",
+      duration: "29-30 March 2025 · Jagannath University",
       contributions: [
         "Premier student-led hackathon hosted at Jagannath University (DevSummit.jagannathUniversity.org).",
         "Brought together talent to build impactful tech in AI/ML, Web3, FinTech, etc.",
-        "Managed 24–36 hours of coding, mentorship, and workshops.",
-        "Attracted participants from top institutes and industry experts."
+        "Led a 24-hour national hackathon with 1000+ registrations and 500+ participants.",
+        "Coordinated teams, mentorship, workshops, and event operations."
       ],
       techStack: ["Leadership", "Event Management", "Networking"],
-      impact: "Served as a launchpad for innovation, learning, and product building."
+      impact: "1000+ registrations · 500+ participants · 24-hour hackathon."
     },
     {
       role: "Frontend Developer - Intern",
@@ -78,6 +77,17 @@ export const portfolioData = {
       ],
       techStack: ["React", "Vue.js", "API Integration", "UI/UX"],
       impact: "Delivered high-quality responsive interfaces for multiple AI-driven products."
+    },
+    {
+      role: "Project Trainee - Internship Program",
+      company: "Samsung India Electronics Pvt. Ltd.",
+      duration: "June 5, 2024 - August 4, 2024",
+      contributions: [
+        "Worked on a JSON-powered database as part of a fast-track Project Trainee assignment.",
+        "Used Samsung in-house tools for API testing, API updates, and request/response verification."
+      ],
+      techStack: ["JSON", "API Testing", "Database Workflows"],
+      impact: "Completed a fast-track Project Trainee assignment."
     },
     {
       role: "Maven (Fellowship)",
@@ -106,13 +116,16 @@ export const portfolioData = {
   skills: {
     technical: [
       { name: "Data Structures & Algorithms", },
-      { name: "Full Stack Development (React, Node.js)",},
-      { name: "Blockchain & Web3", },
-      { name: "Solidity & Smart Contracts", },
-      { name: "AWS & Cloud Deployment", level: 70 },
+      { name: "Full-Stack Development (React, TypeScript, Node.js)", },
+      { name: "Next.js & React Native", },
+      { name: "Python, C++ & Go", },
+      { name: "SQL, PostgreSQL, Prisma & SQLite", },
       { name: "Database Systems (MongoDB, MySQL)", },
-      { name: "Git & CI/CD", },
-      { name: "REST APIs", },
+      { name: "Docker, Docker Compose & Render", },
+      { name: "Git & GitHub", },
+      { name: "REST APIs & WebSockets", },
+      { name: "JWT Authentication & Role-Based Access", },
+      { name: "Core Web Vitals & Technical SEO", },
       { name: "System Design Basics", }
     ],
     soft: [
@@ -126,6 +139,29 @@ export const portfolioData = {
   },
   projects: [
     {
+      title: "Velozity",
+      description: "Real-time project dashboard with Admin, PM, and Developer views, role-scoped REST/WebSocket access, rotating refresh tokens, and automated authorization tests.",
+      techStack: ["React", "TypeScript", "Node.js", "Socket.IO", "PostgreSQL", "Prisma"],
+      github: "https://github.com/Satyam1616/realtime-project-dashboard",
+      live: "https://realtime-project-dashboard-web.vercel.app/"
+    },
+    {
+      title: "Sam-DataLens",
+      description: "CSV analytics app built end to end: natural-language questions become charts and insights, with AI planning separated from deterministic calculations on uploaded data.",
+      techStack: ["Next.js", "TypeScript", "React", "Recharts", "Prisma", "PostgreSQL"],
+      github: "https://github.com/Satyam1616/Sam-DataLens",
+      live: "https://sam-datalens.vercel.app/"
+    },
+    {
+      title: "Anyme",
+      description: "Anime microdrama app I built for Android and iOS, with vertical short-form viewing and 1K+ Android downloads.",
+      techStack: ["React Native", "JavaScript", "Android", "iOS"],
+      github: "https://play.google.com/store/apps/details?id=com.snoozeit.anymeapp&hl=en_IN",
+      live: "https://apps.apple.com/in/app/anyme-anime-in-microdrama/id6760490198",
+      githubLabel: "Google Play",
+      liveLabel: "App Store"
+    },
+    {
       title: "GeoTrack",
       description: "Full-stack vehicle-tracking platform with real-time entry/exit detection using Ray Casting point-in-polygon algorithm and live WebSocket alerts.",
       techStack: ["Go", "React", "TypeScript", "PostgreSQL", "Docker", "Leaflet"],
@@ -134,10 +170,11 @@ export const portfolioData = {
     },
     {
       title: "Trine",
-      description: "Cross-platform wellness companion (PWA + React Native) spanning skincare routines, workout plans, and learning tracks with streaks, progress rings, and Health Connect/HealthKit integration.",
-      techStack: ["React Native", "Expo", "TypeScript", "Health Connect"],
+      description: "Local-first wellness companion for skincare, workouts, and learning, with React Native mobile screens, habit tracking, and JSON backups.",
+      techStack: ["React Native", "Expo", "JavaScript", "AsyncStorage", "PWA"],
       github: "https://github.com/Satyam1616/Trine",
-      live: "https://drive.google.com/file/d/1I_zNJtq6kDv0I1KLKGVG2VWNVnE1iJA3/view?usp=drive_link"
+      live: "https://drive.google.com/file/d/1I_zNJtq6kDv0I1KLKGVG2VWNVnE1iJA3/view?usp=drive_link",
+      liveLabel: "Android APK"
     },
     {
       title: "DevMatch",
@@ -148,7 +185,7 @@ export const portfolioData = {
     },
     {
       title: "DevSummit",
-      description: "Premier student-led hackathon platform fostering innovation and collaboration across AI/ML, Web3, and FinTech.",
+      description: "National 24-hour university hackathon with 1000+ registrations and 500+ participants across AI/ML, Web3, and FinTech.",
       techStack: ["React", "Tailwind", "Node.js"],
       github: "https://github.com/Satyam1616",
       live: "https://devsummit.jagannathuniversity.org/"
@@ -183,8 +220,8 @@ export const portfolioData = {
     },
     {
       title: "StayFindz",
-      description: "Real-estate and accommodation finding platform for students and professionals.",
-      techStack: ["Vue.js", "Firebase", "Google Maps API"],
+      description: "Full-stack accommodation platform with authentication, bookings, reviews, admin routes, and soft deletion, built with React, Express, and Prisma.",
+      techStack: ["React", "Node.js", "Express.js", "Prisma", "SQLite", "JWT"],
       github: "https://github.com/Satyam1616",
       live: "http://stayfindz.com/"
     }
@@ -196,7 +233,7 @@ export const portfolioData = {
     { title: "DSA Problems Solved", value: 800, suffix: "+" }
   ],
   techStackLogos: [
-    "React", "Node.js", "Solidity", "AWS", "MongoDB", "Git", "Docker", "TypeScript", "Tailwind", "Ethereum"
+    "React", "Node.js", "Next.js", "PostgreSQL", "MongoDB", "Git", "Docker", "TypeScript", "Tailwind", "Prisma", "React Native"
   ],
   testimonials: [
     {

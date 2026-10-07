@@ -84,7 +84,7 @@ function FlipCard({ project, index }: { project: typeof portfolioData.projects[0
                 onClick={(e) => e.stopPropagation()}
               >
                 <Github size={16} />
-                Code
+                {project.githubLabel ?? 'Code'}
               </a>
               {hasDistinctLive && (
                 <a
@@ -95,7 +95,7 @@ function FlipCard({ project, index }: { project: typeof portfolioData.projects[0
                   onClick={(e) => e.stopPropagation()}
                 >
                   <ExternalLink size={16} />
-                  Live
+                  {project.liveLabel ?? 'Live'}
                 </a>
               )}
             </div>
