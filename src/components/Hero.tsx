@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Github, Linkedin, FileText } from 'lucide-react';
+import { Github, Linkedin, Code2, FileText } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 import ChromaticText from './ui/ChromaticText';
 import SpiderWeb from './ui/SpiderWeb';
@@ -7,7 +7,7 @@ import { ParallaxLayer } from './ui/ParallaxLayer';
 import MagneticButton from './ui/MagneticButton';
 
 export default function Hero() {
-  const { name, role, intro, github, linkedin, resume } = portfolioData;
+  const { name, role, intro, github, linkedin, leetcode, resume } = portfolioData;
   const { scrollYProgress } = useScroll();
   const bgY = useTransform(scrollYProgress, [0, 0.5], [0, 150]);
   const textY = useTransform(scrollYProgress, [0, 0.5], [0, 50]);
@@ -105,6 +105,17 @@ export default function Hero() {
             </MagneticButton>
             <MagneticButton>
               <a
+                href={leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="comic-btn bg-white/10 text-white border-2 border-white/20 hover:border-spider-red"
+              >
+                <Code2 size={18} />
+                LeetCode
+              </a>
+            </MagneticButton>
+            <MagneticButton>
+              <a
                 href={resume}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -126,7 +137,7 @@ export default function Hero() {
         >
           <div className="comic-panel p-2 rotate-2 hover:rotate-0 transition-transform duration-300 relative group">
             <img
-              src="/avatar.jpg"
+              src="/satyam-photo.png"
               alt={name}
               className="w-64 h-64 sm:w-72 sm:h-72 object-cover object-top grayscale-[30%] contrast-[1.1] brightness-[0.95] group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-500"
             />

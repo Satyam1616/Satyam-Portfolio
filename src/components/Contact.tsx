@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, FileText } from 'lucide-react';
+import { Mail, Github, Linkedin, Code2, FileText } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 import SpiderWeb from './ui/SpiderWeb';
 
 export default function Contact() {
-  const { email, github, linkedin, resume } = portfolioData;
+  const { email, github, linkedin, leetcode, resume } = portfolioData;
 
   return (
     <section id="contact" className="relative py-24 px-6 overflow-hidden">
@@ -62,6 +62,15 @@ export default function Contact() {
           >
             <Linkedin size={18} />
             LinkedIn
+          </a>
+          <a
+            href={leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="comic-btn bg-white/10 text-white border-2 border-white/20 hover:border-spider-red"
+          >
+            <Code2 size={18} />
+            LeetCode
           </a>
           <a
             href={resume}

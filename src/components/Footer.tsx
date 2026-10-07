@@ -1,8 +1,8 @@
 import { portfolioData } from '../data/portfolio';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Code2, Mail } from 'lucide-react';
 
 export default function Footer() {
-  const { name, github, linkedin, email } = portfolioData;
+  const { name, github, linkedin, leetcode, email } = portfolioData;
 
   return (
     <footer className="py-8 px-6 border-t-2 border-spider-red/20">
@@ -29,6 +29,15 @@ export default function Footer() {
             aria-label="LinkedIn"
           >
             <Linkedin size={18} />
+          </a>
+          <a
+            href={leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/40 hover:text-comic-yellow transition-colors"
+            aria-label="LeetCode"
+          >
+            <Code2 size={18} />
           </a>
           <a
             href={`mailto:${email}`}

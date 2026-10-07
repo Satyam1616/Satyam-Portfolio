@@ -6,7 +6,8 @@ export const portfolioData = {
   email: "satyamjha1616@gmail.com",
   github: "Satyam1616",
   linkedin: "https://www.linkedin.com/in/satyam-jha2004/",
-  resume: "/Satyam_Jha_Resume_Full_Stack_SDE.pdf",
+  leetcode: "https://leetcode.com/satyam_xd",
+  resume: "https://drive.google.com/file/d/1V-50WCoGLio_ZB8cWD9Bv3Byq_UJwl6n/view?usp=sharing",
   education: [
     {
       degree: "B.Tech in Computer Science and Engineering (AI-ML)",
